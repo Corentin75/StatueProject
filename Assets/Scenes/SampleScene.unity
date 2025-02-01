@@ -4412,12 +4412,24 @@ PrefabInstance:
       value: Tank
       objectReference: {fileID: 0}
     - target: {fileID: 4233822788899953444, guid: b9b48aef5fb3f6245b733898515da86f, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4233822788899953444, guid: b9b48aef5fb3f6245b733898515da86f, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4233822788899953444, guid: b9b48aef5fb3f6245b733898515da86f, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4233822788899953444, guid: b9b48aef5fb3f6245b733898515da86f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.388
+      value: -3.58
       objectReference: {fileID: 0}
     - target: {fileID: 4233822788899953444, guid: b9b48aef5fb3f6245b733898515da86f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.927
+      value: -0.1
       objectReference: {fileID: 0}
     - target: {fileID: 4233822788899953444, guid: b9b48aef5fb3f6245b733898515da86f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4450,6 +4462,10 @@ PrefabInstance:
     - target: {fileID: 4233822788899953444, guid: b9b48aef5fb3f6245b733898515da86f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6551646934803925631, guid: b9b48aef5fb3f6245b733898515da86f, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8877542688004254079, guid: b9b48aef5fb3f6245b733898515da86f, type: 3}
       propertyPath: gripPressAction.m_Action.m_Name
@@ -12877,7 +12893,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: NaN, z: 0, w: -8.231721e+29}
+  m_BoundingSphereOverride: {x: 5.4e-43, y: 4.3967488e-29, z: 5.4e-43, w: 3.9737697e-27}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
