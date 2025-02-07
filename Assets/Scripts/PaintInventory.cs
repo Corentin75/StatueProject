@@ -6,8 +6,13 @@ using UnityEngine.InputSystem.XR;
 
 public class PaintInventory : MonoBehaviour
 {
+    public Material[] materialsContainer;
+    private Material paintMat;
+
     private float maxCapacity;
     private float currentCapacity;
+
+    private float currentNum;
 
     private float scaleDiminution;
 
@@ -19,10 +24,15 @@ public class PaintInventory : MonoBehaviour
     private float scaleFactor;
 
     public GameObject paintTank;
+    public GameObject[] Weapons;
 
     // Start is called before the first frame update
     void Start()
     {
+        paintMat = GetComponent<Material>();
+
+        currentNum = 0;
+
         maxCapacity = 10f;
         currentCapacity = maxCapacity;
 
@@ -112,14 +122,33 @@ public class PaintInventory : MonoBehaviour
         paintTank.transform.localScale = targetScale;
     }
 
-    public void ChangeColor()
+    public void ChangerNum()
     {
-
+        if(currentNum == 2)
+        {
+            currentNum = 0;
+        }
+        else
+        {
+            currentNum += 1;
+        }
     }
 
-    public void ChangeColorType()
+    public void ChangeMaterial(int numéro)
     {
+        switch(numéro)
+        {
+            case 0:
+                Debug.Log("numéro : " + numéro + " , arme : " + Weapons[0]);
+                break;
+            case 1:
+                Debug.Log("numéro : " + numéro + " , arme : " + Weapons[1]);
+                break;
+            case 2:
+                Debug.Log("numéro : " + numéro + " , arme : " + Weapons[2]);
+                break;
 
+        }
     }
 
 }
