@@ -6,11 +6,11 @@ using UnityEngine.Rendering;
 public class Sculpture : MonoBehaviour
 {
     public Color paintColor = Color.red;
-    public float brushSize = 0.1f;
     private Renderer cubeRenderer;
     private Material cubeMaterial;
     private RenderTexture paintTexture;
     private Texture2D baseTexture; // Image de base
+    private RenderTexture tempTexture; // Texture intermédiaire
 
     public ComputeShader paintComputeShader;
 
@@ -18,27 +18,54 @@ public class Sculpture : MonoBehaviour
     {
         cubeRenderer = GetComponent<Renderer>();
         cubeMaterial = cubeRenderer.material;
-
-        // Charger la texture de base (si ton matériau a une texture)
-        baseTexture = cubeMaterial.GetTexture("_MainTex") as Texture2D;
+        Debug.Log("Cube Material: " + cubeMaterial);
+        // Vérifier si le mesh utilise une texture existante
+        baseTexture = cubeMaterial.mainTexture as Texture2D;
         if (baseTexture == null)
         {
-            baseTexture = Texture2D.whiteTexture; // Texture blanche si aucune
+            baseTexture = Texture2D.whiteTexture; // Si aucune texture n'existe, utiliser une texture blanche
         }
-
-        // Créer la RenderTexture pour la peinture
+        Debug.Log("Base Texture: " + baseTexture);
+        // Créer une nouvelle RenderTexture
         paintTexture = new RenderTexture(baseTexture.width, baseTexture.height, 0);
         paintTexture.enableRandomWrite = true;
         paintTexture.filterMode = FilterMode.Bilinear;
         paintTexture.Create();
 
-        // Copier la texture de base dans paintTexture
+        // Créer une texture intermédiaire
+        tempTexture = new RenderTexture(baseTexture.width, baseTexture.height, 0);
+        tempTexture.enableRandomWrite = true;
+        tempTexture.filterMode = FilterMode.Bilinear;
+        tempTexture.Create();
+
+        // Copier la texture existante dans la texture intermédiaire
+        Graphics.Blit(baseTexture, tempTexture);
+
+        // Copier la texture intermédiaire dans la texture de peinture
+        Graphics.Blit(tempTexture, paintTexture);
+
+        // Copier la texture existante dans la RenderTexture
         Graphics.Blit(baseTexture, paintTexture);
 
-        // Assigner la texture peinte au matériau
+        Debug.Log("Base Texture: " + paintTexture);
+
+        // Appliquer la texture peinte au matériau
         cubeMaterial.SetTexture("_MainTex", paintTexture);
 
-        // Passer les textures au Compute Shader
+        // Configurer le matériau pour utiliser le shader personnalisé
+        cubeMaterial.shader = Shader.Find("Custom/PaintShader");
+
+        // Configurer le matériau pour qu'il soit transparent
+        cubeMaterial.SetFloat("_Mode", 3); // Mode transparent
+        cubeMaterial.SetInt("_SrcBlend", (int)UnityEngine.Rendering.BlendMode.SrcAlpha);
+        cubeMaterial.SetInt("_DstBlend", (int)UnityEngine.Rendering.BlendMode.OneMinusSrcAlpha);
+        cubeMaterial.SetInt("_ZWrite", 0);
+        cubeMaterial.DisableKeyword("_ALPHATEST_ON");
+        cubeMaterial.EnableKeyword("_ALPHABLEND_ON");
+        cubeMaterial.DisableKeyword("_ALPHAPREMULTIPLY_ON");
+        cubeMaterial.renderQueue = (int)UnityEngine.Rendering.RenderQueue.Transparent;
+
+        // Passer la texture au Compute Shader
         paintComputeShader.SetTexture(0, "Result", paintTexture);
         paintComputeShader.SetTexture(0, "_MainTex", paintTexture);
         paintComputeShader.SetInts("_TextureSize", paintTexture.width, paintTexture.height);
@@ -46,25 +73,25 @@ public class Sculpture : MonoBehaviour
 
     public void Paint(Vector2 uv, float brushSize)
     {
-        Debug.Log("UV Hit Position: " + uv); // Afficher la position UV dans la console
+        // Inverser Y des coordonnées UV pour correspondre à la disposition de la texture dans Unity
+        Vector2 hitPosition = new Vector2(uv.x, 1.0f - uv.y); // Correction des coordonnées UV
 
-        // Inverser Y des coordonnées UV pour Unity (Y=0 en bas)
-        Vector2 hitPosition = new Vector2(uv.x, 1.0f - uv.y); // Inverser Y pour Unity
-        Debug.Log("Inverted UV Hit Position: " + hitPosition); // Afficher la position UV inversée
-
-        // Passer la position du pinceau et la taille du pinceau au Compute Shader
-        paintComputeShader.SetVector("_HitPosition", hitPosition);  // Position du pinceau (UV normalisé)
-        paintComputeShader.SetFloat("_BrushSize", brushSize / Mathf.Max(paintTexture.width, paintTexture.height));  // Taille du pinceau en proportion de la texture
+        paintComputeShader.SetVector("_HitPosition", hitPosition);  // Passer les coordonnées UV inversées
+        paintComputeShader.SetFloat("_BrushSize", brushSize);  // Passer la taille du pinceau
         paintComputeShader.SetVector("_BrushColor", new Vector4(paintColor.r, paintColor.g, paintColor.b, paintColor.a));
-        paintComputeShader.SetInt("_TextureSize", paintTexture.width);
+        paintComputeShader.SetInts("_TextureSize", paintTexture.width, paintTexture.height);
 
-        // Passer la texture au Compute Shader
-        paintComputeShader.SetTexture(0, "_MainTex", paintTexture);
+        // Passer la texture intermédiaire au Compute Shader
+        paintComputeShader.SetTexture(0, "_MainTex", tempTexture);
+        paintComputeShader.SetTexture(0, "Result", paintTexture); // Utiliser la texture de peinture pour écrire
 
         // Lancer le Compute Shader
         int threadGroupX = Mathf.CeilToInt(paintTexture.width / 16f);
         int threadGroupY = Mathf.CeilToInt(paintTexture.height / 16f);
         paintComputeShader.Dispatch(0, threadGroupX, threadGroupY, 1);
+
+        // Copier la texture de peinture dans la texture intermédiaire pour accumuler les taches
+        Graphics.Blit(paintTexture, tempTexture);
 
         // Appliquer la texture modifiée au matériau
         cubeMaterial.SetTexture("_MainTex", paintTexture);

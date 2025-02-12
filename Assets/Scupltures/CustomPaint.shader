@@ -9,7 +9,13 @@ Shader "Custom/PaintShader"
     }
     SubShader
     {
-        Tags { "Queue"="Overlay" }
+        Tags { "Queue"="Transparent" "RenderType"="Transparent" }
+        LOD 200
+
+        Blend SrcAlpha OneMinusSrcAlpha
+        ZWrite Off
+        Cull Off
+        Lighting Off
 
         Pass
         {
@@ -22,8 +28,6 @@ Shader "Custom/PaintShader"
             struct appdata
             {
                 float4 vertex : POSITION;
-                float3 normal : NORMAL;
-                float4 color : COLOR;
                 float2 uv : TEXCOORD0;
             };
 
@@ -37,7 +41,6 @@ Shader "Custom/PaintShader"
             sampler2D _PaintTex;
             float4 _BrushColor;
             float _BrushSize;
-            float2 _PaintTex_TexelSize;
 
             v2f vert(appdata v)
             {
@@ -51,12 +54,11 @@ Shader "Custom/PaintShader"
             {
                 half4 baseColor = tex2D(_MainTex, i.uv);
                 half4 paintColor = tex2D(_PaintTex, i.uv);
-                half brushEffect = step(0.5, length(i.uv - _PaintTex_TexelSize));
 
-                // Appliquer la peinture sur la texture
-                baseColor = lerp(baseColor, _BrushColor, brushEffect * _BrushSize);
-                
-                return baseColor;
+                // Mélanger la couleur de base avec la couleur de peinture
+                half4 finalColor = lerp(baseColor, paintColor, paintColor.a);
+
+                return finalColor;
             }
             ENDCG
         }

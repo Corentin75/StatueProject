@@ -3,38 +3,38 @@
 RWTexture2D<float4> Result;
 Texture2D<float4> _MainTex;
 float4 _BrushColor;
-float _BrushSize; // Taille du pinceau en proportion de la texture
-float2 _HitPosition; // Position du pinceau en UV normalisé
-int2 _TextureSize; // Taille de la texture (en pixels)
+float _BrushSize; // Taille du pinceau (en UV normalisé)
+float2 _HitPosition; // Position du pinceau (en UV normalisé)
+int2 _TextureSize;
 
 [numthreads(16, 16, 1)]
 void CSMain(uint3 id : SV_DispatchThreadID)
 {
-    // Vérifier que le pixel est dans les limites de la texture
     if (id.x >= _TextureSize.x || id.y >= _TextureSize.y)
         return;
 
-    // Convertir l'index en coordonnées UV normalisées (entre 0 et 1)
-    float2 uv = float2(id.x, id.y) / float2(_TextureSize.x, _TextureSize.y);
+    // Convertir les indices en coordonnées UV (normalisées entre 0 et 1)
+    float2 uv = id.xy / float2(_TextureSize.x, _TextureSize.y);
 
-    // Inverser l'axe Y des coordonnées UV pour correspondre à Unity (Y=0 en bas)
+    // Inverser l'axe Y des coordonnées UV pour correspondre à Unity (Y=0 est en bas)
     uv.y = 1.0f - uv.y;
 
-    // Calculer la distance entre le pixel et la position du pinceau
+    // Calculer la distance entre la position du pinceau et le pixel actuel
     float distance = length(uv - _HitPosition);
+
+    // Récupérer la couleur du pixel à la position (uv)
+    float4 baseColor = _MainTex[id.xy];
 
     // Appliquer la couleur du pinceau seulement si la distance est inférieure à la taille du pinceau
     if (distance < _BrushSize)
     {
-        // Récupérer la couleur actuelle du pixel
-        float4 baseColor = _MainTex[id.xy];
-        
-        // Mélanger la couleur du pinceau avec la couleur de base
-        Result[id.xy] = lerp(baseColor, _BrushColor, 1.0f); // Remplacer complètement la couleur
+        // Mélanger la couleur du pinceau avec la couleur existante
+        float4 newColor = lerp(baseColor, _BrushColor, _BrushColor.a); // Mélanger la couleur existante avec la couleur du pinceau
+        Result[id.xy] = newColor;
     }
     else
     {
-        // Garder la couleur originale si le pixel est en dehors du rayon du pinceau
-        Result[id.xy] = _MainTex[id.xy];
+        // Conserver la couleur d'origine si le pixel est en dehors de la zone du pinceau
+        Result[id.xy] = baseColor;
     }
 }

@@ -23,10 +23,6 @@ public class Gun : MonoBehaviour
             if (sculpture != null)
             {
                 Vector2 uv = hit.textureCoord;
-                Debug.Log("Pew pew !");
-                Debug.Log("Hit Point: " + hit.point);  // Affiche la position du raycast dans le monde
-                Debug.Log("UV Hit Position: " + uv);  // Affiche la coordonnée UV obtenue du raycast
-                Debug.Log("UV Hit Position Inverted: " + new Vector2(uv.x, 1.0f - uv.y));
                 sculpture.Paint(uv,brushSize);
             }
         }
