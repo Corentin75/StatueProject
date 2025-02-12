@@ -6,7 +6,7 @@ using TMPro;
 public class MoneyInventory : MonoBehaviour
 {
     public static MoneyInventory Instance; // Singleton 
-    public int money = 1000; 
+    public float money = 1000; 
     public TextMeshProUGUI moneyText; 
 
     private void Awake()
@@ -22,7 +22,7 @@ public class MoneyInventory : MonoBehaviour
         UpdateMoneyUI();
     }
 
-    public bool SpendMoney(int amount)
+    public bool SpendMoney(float amount)
     {
         if (money >= amount)
         {
