@@ -10,8 +10,10 @@ public class Gun : MonoBehaviour
     public GameObject gun;
     public LayerMask layerMask;
     public float brushSize = 0.1f;
-    public Texture2D paintTexture;
-    public Material paintMaterial;
+    public Texture2D paintTexture; // Texture de pinceau
+    public Material paintMaterial; // Matériau de peinture
+    public Color paintColor = Color.red; // Couleur de peinture
+
     public void Shoot()
     {
         RaycastHit hit;
@@ -23,7 +25,7 @@ public class Gun : MonoBehaviour
             if (sculpture != null)
             {
                 Vector2 uv = hit.textureCoord;
-                sculpture.Paint(uv,brushSize);
+                sculpture.Paint(uv, brushSize, paintTexture, paintMaterial, paintColor); // Passer la texture, le matériau et la couleur de pinceau
             }
         }
     }

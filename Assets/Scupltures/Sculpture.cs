@@ -5,7 +5,6 @@ using UnityEngine.Rendering;
 
 public class Sculpture : MonoBehaviour
 {
-    public Color paintColor = Color.red;
     private Renderer cubeRenderer;
     private Material cubeMaterial;
     private RenderTexture paintTexture;
@@ -13,6 +12,7 @@ public class Sculpture : MonoBehaviour
     private RenderTexture tempTexture; // Texture intermédiaire
 
     public ComputeShader paintComputeShader;
+    public float minAlpha = 0.1f; // Alpha minimum
 
     void Start()
     {
@@ -44,9 +44,6 @@ public class Sculpture : MonoBehaviour
         // Copier la texture intermédiaire dans la texture de peinture
         Graphics.Blit(tempTexture, paintTexture);
 
-        // Copier la texture existante dans la RenderTexture
-        Graphics.Blit(baseTexture, paintTexture);
-
         Debug.Log("Base Texture: " + paintTexture);
 
         // Appliquer la texture peinte au matériau
@@ -59,9 +56,12 @@ public class Sculpture : MonoBehaviour
         paintComputeShader.SetTexture(0, "Result", paintTexture);
         paintComputeShader.SetTexture(0, "_MainTex", paintTexture);
         paintComputeShader.SetInts("_TextureSize", paintTexture.width, paintTexture.height);
+
+        // Passer la valeur de l'alpha minimum au Compute Shader
+        paintComputeShader.SetFloat("_MinAlpha", minAlpha);
     }
 
-    public void Paint(Vector2 uv, float brushSize)
+    public void Paint(Vector2 uv, float brushSize, Texture2D brushTexture, Material paintMaterial, Color paintColor)
     {
         // Inverser Y des coordonnées UV pour correspondre à la disposition de la texture dans Unity
         Vector2 hitPosition = new Vector2(uv.x, 1.0f - uv.y); // Correction des coordonnées UV
@@ -71,9 +71,15 @@ public class Sculpture : MonoBehaviour
         paintComputeShader.SetVector("_BrushColor", new Vector4(paintColor.r, paintColor.g, paintColor.b, paintColor.a));
         paintComputeShader.SetInts("_TextureSize", paintTexture.width, paintTexture.height);
 
+        // Passer la texture de pinceau au Compute Shader
+        paintComputeShader.SetTexture(0, "_BrushTex", brushTexture);
+
         // Passer la texture intermédiaire au Compute Shader
         paintComputeShader.SetTexture(0, "_MainTex", tempTexture);
         paintComputeShader.SetTexture(0, "Result", paintTexture); // Utiliser la texture de peinture pour écrire
+
+        // Passer la valeur de l'alpha minimum au Compute Shader
+        paintComputeShader.SetFloat("_MinAlpha", minAlpha);
 
         // Lancer le Compute Shader
         int threadGroupX = Mathf.CeilToInt(paintTexture.width / 16f);
