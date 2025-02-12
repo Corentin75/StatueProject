@@ -55,16 +55,6 @@ public class Sculpture : MonoBehaviour
         // Configurer le matériau pour utiliser le shader personnalisé
         cubeMaterial.shader = Shader.Find("Custom/PaintShader");
 
-        // Configurer le matériau pour qu'il soit transparent
-        cubeMaterial.SetFloat("_Mode", 3); // Mode transparent
-        cubeMaterial.SetInt("_SrcBlend", (int)UnityEngine.Rendering.BlendMode.SrcAlpha);
-        cubeMaterial.SetInt("_DstBlend", (int)UnityEngine.Rendering.BlendMode.OneMinusSrcAlpha);
-        cubeMaterial.SetInt("_ZWrite", 0);
-        cubeMaterial.DisableKeyword("_ALPHATEST_ON");
-        cubeMaterial.EnableKeyword("_ALPHABLEND_ON");
-        cubeMaterial.DisableKeyword("_ALPHAPREMULTIPLY_ON");
-        cubeMaterial.renderQueue = (int)UnityEngine.Rendering.RenderQueue.Transparent;
-
         // Passer la texture au Compute Shader
         paintComputeShader.SetTexture(0, "Result", paintTexture);
         paintComputeShader.SetTexture(0, "_MainTex", paintTexture);

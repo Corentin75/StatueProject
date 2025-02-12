@@ -7,6 +7,7 @@ public class VRInput : MonoBehaviour
 {
     public InputActionAsset inputActions;
     private InputAction primaryButtonAction;
+    private Coroutine shootingCoroutine;
 
     private void Awake()
     {
@@ -14,6 +15,7 @@ public class VRInput : MonoBehaviour
         primaryButtonAction = actionMap.FindAction("Primary");
 
         primaryButtonAction.performed += OnPrimaryButtonPressed;
+        primaryButtonAction.canceled += OnPrimaryButtonReleased;
     }
 
     private void OnEnable()
@@ -28,7 +30,27 @@ public class VRInput : MonoBehaviour
 
     private void OnPrimaryButtonPressed(InputAction.CallbackContext context)
     {
-        GetComponent<Gun>().Shoot();
+        if (shootingCoroutine == null)
+        {
+            shootingCoroutine = StartCoroutine(ShootContinuously());
+        }
+    }
 
+    private void OnPrimaryButtonReleased(InputAction.CallbackContext context)
+    {
+        if (shootingCoroutine != null)
+        {
+            StopCoroutine(shootingCoroutine);
+            shootingCoroutine = null;
+        }
+    }
+
+    private IEnumerator ShootContinuously()
+    {
+        while (true)
+        {
+            GetComponent<Gun>().Shoot();
+            yield return new WaitForSeconds(0.01f);
+        }
     }
 }
