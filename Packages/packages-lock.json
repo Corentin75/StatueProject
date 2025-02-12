@@ -310,13 +310,8 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.xr.openxr": {
-<<<<<<< Updated upstream
-      "version": "1.12.1",
-      "depth": 1,
-=======
       "version": "1.12.0",
       "depth": 0,
->>>>>>> Stashed changes
       "source": "registry",
       "dependencies": {
         "com.unity.inputsystem": "1.6.3",
