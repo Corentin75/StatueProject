@@ -50,7 +50,7 @@ public class ShopManager : MonoBehaviour
             {
                 Debug.LogError("'Buy' non trouvé sous " + newWeapon.name);
             }
-            TextMeshProUGUI textBuy = buy.Find("BuyPrix").GetComponent<TextMeshProUGUI>();
+            Text textBuy = buy.Find("BuyPrix").GetComponent<Text>();
             if (textBuy != null)
             {
                 textBuy.text = $"Acheter ${data.weaponPrice}";
