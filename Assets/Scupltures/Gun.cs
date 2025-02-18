@@ -13,17 +13,19 @@ public class Gun : MonoBehaviour
     public Texture2D paintTexture; // Texture de pinceau
     public Material paintMaterial; // Matériau de peinture
     public Color paintColor = Color.red; // Couleur de peinture
+    public SprayController particle;
 
     public void Shoot()
     {
         RaycastHit hit;
         Ray ray = new Ray(gun.transform.position, gun.transform.forward);
-
+        StartCoroutine(particle.PlayParticle());
         if (Physics.Raycast(ray, out hit) && layerMask.Contains(hit.collider.gameObject.layer))
         {
             var sculpture = hit.collider.gameObject.GetComponent<Sculpture>();
             if (sculpture != null)
             {
+                
                 Vector2 uv = hit.textureCoord;
                 sculpture.Paint(uv, brushSize, paintTexture, paintMaterial, paintColor); // Passer la texture, le matériau et la couleur de pinceau
             }
@@ -35,4 +37,6 @@ public class Gun : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawRay(gun.transform.position, gun.transform.forward);
     }
+
+    
 }
