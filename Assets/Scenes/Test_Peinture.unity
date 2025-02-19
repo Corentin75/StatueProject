@@ -215,6 +215,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprayParticles: {fileID: 0}
+  newMaterial: {fileID: 0}
 --- !u!199 &79260707
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -6265,7 +6266,7 @@ ParticleSystem:
   emitterVelocityMode: 1
   looping: 1
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -12092,6 +12093,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprayParticles: {fileID: 542135964}
+  newMaterial: {fileID: 0}
 --- !u!4 &1210575487
 Transform:
   m_ObjectHideFlags: 0
