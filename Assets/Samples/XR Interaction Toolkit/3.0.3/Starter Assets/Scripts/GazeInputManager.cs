@@ -44,6 +44,7 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
 
             foreach (var device in InputSystem.InputSystem.devices)
             {
+                Debug.Log(device.name, this);
                 if (device.layout == k_EyeGazeLayoutName)
                 {
                     Debug.Log("Eye gaze device found!", this);
