@@ -6,6 +6,7 @@ using UnityEngine;
 public class LevelData : ScriptableObject
 {
     public string levelName;
+    public int levelId;
     public GameObject artWorkPrefab;
     public ArtworkData[] artWorks;
 }
