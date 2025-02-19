@@ -6,7 +6,6 @@ public class GameLoader : MonoBehaviour
 {
     [SerializeField] public DifficultySettings difficultySettings;
 
-    // Start is called before the first frame update
     public void LoadGame()
     {
         if (difficultySettings != null)
@@ -14,15 +13,23 @@ public class GameLoader : MonoBehaviour
             switch (difficultySettings.difficulty)
             {
                 case DifficultySettings.DifficultyLevel.Easy:
-                    Debug.Log("Difficulty is Easy: Rotation Speed = " + difficultySettings.GetRotationSpeed());
+                    Debug.Log("Difficulty set to Easy");
+                    // TODO
+
                     break;
+
                 case DifficultySettings.DifficultyLevel.Normal:
-                    Debug.Log("Difficulty is Normal: Rotation Speed = " + difficultySettings.GetRotationSpeed());
+                    Debug.Log("Difficulty set to Normal");
+                    // TODO
+
                     break;
+
                 case DifficultySettings.DifficultyLevel.Hard:
-                    Debug.Log("Difficulty is Hard: Rotation Speed = " + difficultySettings.GetRotationSpeed());
-                    Debug.Log("Reverse Rotation: " + difficultySettings.ShouldReverseRotation());
+                    Debug.Log("Difficulty set to Hard");
+                    // TODO
+
                     break;
+
                 default:
                     Debug.Log("Unknown Difficulty");
                     break;

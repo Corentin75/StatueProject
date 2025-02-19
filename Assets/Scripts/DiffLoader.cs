@@ -5,8 +5,6 @@ using UnityEngine;
 public class DiffLoader : MonoBehaviour
 {
     [SerializeField] public DifficultySettings difficultySettings;
-    // Start is called before the first frame update
-    
     public void setModeEasy()
     {
         difficultySettings.SetDifficulty(DifficultySettings.DifficultyLevel.Easy);
