@@ -1,10 +1,10 @@
 using UnityEngine;
 
-public class Rotation : MonoBehaviour
+public class BaseRotation : MonoBehaviour
 {
     public DifficultySettings difficultySettings;
-    private float speed;
-    private int direction = 1;
+    public float speed;
+    public int direction = 1;
 
     void Start()
     {
@@ -20,9 +20,8 @@ public class Rotation : MonoBehaviour
         transform.Rotate(Vector3.up * Time.deltaTime * speed * direction);
     }
 
-    public void ButonClick()
+    public void ButtonClick()
     {
         speed = difficultySettings.GetRotationSpeed();
-        
     }
 }
