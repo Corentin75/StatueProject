@@ -1511,6 +1511,7 @@ MonoBehaviour:
   arrow: {fileID: 1215313002}
   choice: {fileID: 1999355311}
   isToggled: 0
+  rotationDuration: 0.2
 --- !u!1 &1249617917
 GameObject:
   m_ObjectHideFlags: 0
