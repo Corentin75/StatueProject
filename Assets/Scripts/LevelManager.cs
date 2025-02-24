@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LevelManager : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class LevelManager : MonoBehaviour
     private Vector3 soclePosition;
     private GameObject currentStructure;
     private int currentLevel = 0;
+
+    public Button[] buttonsChoice;
 
     void Start()
     {
@@ -36,6 +39,15 @@ public class LevelManager : MonoBehaviour
         Quaternion instanceRotation = Quaternion.identity;
         currentStructure = Instantiate(levels[level].artWorkPrefab, soclePosition, instanceRotation);
         currentLevel = level;
+        LoadImage(currentLevel);
+    }
+
+    public void LoadImage(int level)
+    {
+        for (int i = 0; i < buttonsChoice.Length; i++)
+        {
+            buttonsChoice[i].image.sprite = levels[level].artWorks[i].artworkPicture;
+        }
     }
 
     public void UpdateLevel()
@@ -44,23 +56,15 @@ public class LevelManager : MonoBehaviour
         if (nextLevel < levels.Length)
         {
             LoadLevel(nextLevel);
+            Debug.Log("Passage au niveau : " + nextLevel);
         }
     }
 
     private IEnumerator WaitAndIncreaseLevel()
     {
-        yield return new WaitForSeconds(5f); // Attend 10 secondes
+        yield return new WaitForSeconds(20f); // Attend 5 secondes
 
-        int nextLevel = currentLevel + 1;
-        if (nextLevel < levels.Length)
-        {
-            LoadLevel(nextLevel);
-            Debug.Log("Passage au niveau : " + nextLevel);
-        }
-        else
-        {
-            Debug.Log("Tous les niveaux ont été complétés !");
-        }
+        UpdateLevel();
     }
 
 }
