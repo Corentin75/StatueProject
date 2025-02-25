@@ -1,6 +1,5 @@
 using UnityEngine;
-
-public class RotationManager : MonoBehaviour
+public class BaseRotation : MonoBehaviour
 {
     public DifficultySettings difficultySettings;
     public float speed;
