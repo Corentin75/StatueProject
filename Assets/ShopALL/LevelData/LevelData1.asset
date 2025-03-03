@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 227c98dde907a2b4e8377bb484fac2d2, type: 3}
   m_Name: LevelData1
   m_EditorClassIdentifier: 
-  levelName: Level 1
-  levelId: 1
-  artWorkPrefab: {fileID: 6130536675920459379, guid: 9a7c2bbdf6b486c4488a451044a9c299, type: 3}
+  levelName: Level 0
+  levelId: 0
+  artWorkPrefab: {fileID: 3283346800442345175, guid: 8aa50f1eaa68bb744b9a7d0b1ddf0315, type: 3}
   artWorks:
   - {fileID: 11400000, guid: e3ad415d637b241459edd89b23a7ad15, type: 2}
   - {fileID: 11400000, guid: 6b99358e44e67cf469e509ed836fd754, type: 2}
