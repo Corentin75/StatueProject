@@ -6,10 +6,18 @@ using UnityEngine.UI;
 public class LevelManager : MonoBehaviour
 {
     public LevelData[] levels;
-    public GameObject socle;
+
     private Vector3 soclePosition;
-    private GameObject currentStructure;
+
     private int currentLevel = 0;
+    private int correctStatue;
+
+    public GameObject socle;
+    private GameObject currentStructure;
+    public GameObject canvaConfirm;
+    public GameObject choice;
+
+    public Button currentButton;
 
     public Button[] buttonsChoice;
 
@@ -72,9 +80,28 @@ public class LevelManager : MonoBehaviour
 
     private IEnumerator WaitAndIncreaseLevel()
     {
-        yield return new WaitForSeconds(10f); // Attend 10 secondes
+        yield return new WaitForSeconds(30f); // Attend 10 secondes
 
         UpdateLevel();
+    }
+
+    public void OnCliCk(Button button)
+    {
+        canvaConfirm.SetActive(true);
+
+        currentButton = button;
+    }
+
+    public void OpenConfirm()
+    {
+        Debug.Log("Vous avez choise : " + currentButton);
+        canvaConfirm.SetActive(false);
+    }
+
+
+    public void CloseConfirm()
+    {
+        canvaConfirm.SetActive(false);
     }
 
 }
