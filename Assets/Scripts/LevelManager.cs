@@ -6,10 +6,17 @@ using UnityEngine.UI;
 public class LevelManager : MonoBehaviour
 {
     public LevelData[] levels;
-    public GameObject socle;
+
     private Vector3 soclePosition;
-    private GameObject currentStructure;
+
     private int currentLevel = 0;
+    private int correctStatue;
+
+    public GameObject socle;
+    private GameObject currentStructure;
+    public GameObject canvaConfirm;
+    public GameObject canvaChoice;
+
 
     public Button[] buttonsChoice;
 
@@ -65,6 +72,26 @@ public class LevelManager : MonoBehaviour
         yield return new WaitForSeconds(20f); // Attend 5 secondes
 
         UpdateLevel();
+    }
+
+    public void OnCliCk(Button button)
+    {
+        Debug.Log("Bouton actuelle : " + button);
+
+        Transform parentTransform = button.transform;
+
+        Quaternion instanceRotation = Quaternion.identity;
+
+        Instantiate(canvaConfirm, soclePosition, instanceRotation, parentTransform);
+    }
+
+    private void OpenConfirm()
+    {
+        canvaConfirm.SetActive(true);
+    }
+    public void CloseConfirm()
+    {
+        canvaConfirm.SetActive(false);
     }
 
 }
