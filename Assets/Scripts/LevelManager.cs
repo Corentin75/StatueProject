@@ -16,11 +16,16 @@ public class LevelManager : MonoBehaviour
     void Start()
     {
         soclePosition = socle.transform.position;
+        soclePosition.y += 0.5f;
+
         LoadLevel(currentLevel);
+
+        Debug.Log("Niveau actuelle :" + currentLevel);
+
         StartCoroutine(WaitAndIncreaseLevel());
+
     }
 
-    // Update is called once per frame
     public void LoadLevel(int level)
     {
         if (level < 0 || level >= levels.Length)
@@ -36,8 +41,11 @@ public class LevelManager : MonoBehaviour
         }
 
         // Création de la prefab du Chefd'oeuvre
-        Quaternion instanceRotation = Quaternion.identity;
-        currentStructure = Instantiate(levels[level].artWorkPrefab, soclePosition, instanceRotation);
+        Quaternion instanceRotation = Quaternion.Euler(90,0,0);
+
+        Transform socleTransform = socle.transform;
+
+        currentStructure = Instantiate(levels[level].artWorkPrefab, soclePosition, instanceRotation, socleTransform);
         currentLevel = level;
         LoadImage(currentLevel);
     }
@@ -57,12 +65,14 @@ public class LevelManager : MonoBehaviour
         {
             LoadLevel(nextLevel);
             Debug.Log("Passage au niveau : " + nextLevel);
+
+            StartCoroutine(WaitAndIncreaseLevel());
         }
     }
 
     private IEnumerator WaitAndIncreaseLevel()
     {
-        yield return new WaitForSeconds(20f); // Attend 5 secondes
+        yield return new WaitForSeconds(10f); // Attend 10 secondes
 
         UpdateLevel();
     }
