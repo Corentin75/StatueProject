@@ -799,6 +799,11 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 5079819452247848789, guid: ff66e234b0f501744a0e62362ed0b33b, type: 3}
   m_PrefabInstance: {fileID: 3467444027127535103}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1021145940 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1717954561962503725, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
+  m_PrefabInstance: {fileID: 1520995210}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1035970516
 GameObject:
   m_ObjectHideFlags: 0
@@ -1611,7 +1616,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1717954561962503726, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.133
       objectReference: {fileID: 0}
     - target: {fileID: 1717954561962503726, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1619,7 +1624,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1717954561962503726, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2
+      value: 2.218
       objectReference: {fileID: 0}
     - target: {fileID: 1717954561962503726, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1726,6 +1731,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   difficultySettings: {fileID: 11400000, guid: 4afe3302c577d084f85da8647bb1b002, type: 2}
+  player: {fileID: 1021145940}
 --- !u!1001 &1691049954
 PrefabInstance:
   m_ObjectHideFlags: 0
