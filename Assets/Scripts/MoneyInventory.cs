@@ -39,7 +39,7 @@ public class MoneyInventory : MonoBehaviour
         UpdateMoneyUI();
     }
 
-    private void UpdateMoneyUI()
+    public void UpdateMoneyUI()
     {
         if (moneyText != null)
             moneyText.text = "Money: " + money;
