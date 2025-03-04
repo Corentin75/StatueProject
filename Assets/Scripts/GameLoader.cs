@@ -86,5 +86,8 @@ public class GameLoader : MonoBehaviour
 
         MoneyInventory.Instance.money += moneyEarned;
         MoneyInventory.Instance.UpdateMoneyUI();
+
+        Debug.Log("Money earned: " + moneyEarned);
+        Debug.Log("Time taken: " + timer.ToString("F1")); // arrondi au dixième
     }
 }
