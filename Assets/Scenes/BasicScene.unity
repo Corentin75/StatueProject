@@ -2098,6 +2098,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 191059998191637868, guid: f9c18081da581f64e8bb47c21ddb9ce0, type: 3}
+      propertyPath: weaponData.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 191059998191637868, guid: f9c18081da581f64e8bb47c21ddb9ce0, type: 3}
+      propertyPath: weaponData.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: e72ad7d65c8ab3a46a67c4028cf0536a, type: 2}
     - target: {fileID: 1459844788032191759, guid: f9c18081da581f64e8bb47c21ddb9ce0, type: 3}
       propertyPath: m_TargetGraphic
       value: 
@@ -2534,9 +2542,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2.1844, y: 7.00275, z: 2.1844}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1272430084}
-  m_Father: {fileID: 1692860843}
+  m_Children: []
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2691,7 +2698,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1692860843}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3143,3 +3150,5 @@ SceneRoots:
   - {fileID: 543270096}
   - {fileID: 696764112}
   - {fileID: 1913131343}
+  - {fileID: 1933769357}
+  - {fileID: 1938975080}
