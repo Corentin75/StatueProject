@@ -11,7 +11,7 @@ public class ChoiceDropdown : MonoBehaviour
 
     void Start()
     {
-        isToggled = false;
+        isToggled = true;
     }
 
     public void ToggleDropdown()
@@ -24,8 +24,12 @@ public class ChoiceDropdown : MonoBehaviour
 
     IEnumerator RotateArrow(float targetZ)
     {
+        Vector3 startEulerAngles = arrow.transform.eulerAngles;
+        Vector3 targetEulerAngles = new Vector3(startEulerAngles.x, startEulerAngles.y, targetZ);
+
         Quaternion startRotation = arrow.transform.rotation;
-        Quaternion targetRotation = Quaternion.Euler(0, 0, targetZ);
+        Quaternion targetRotation = Quaternion.Euler(targetEulerAngles);
+
         float timeElapsed = 0f;
 
         while (timeElapsed < rotationDuration)
@@ -37,4 +41,5 @@ public class ChoiceDropdown : MonoBehaviour
 
         arrow.transform.rotation = targetRotation;
     }
+
 }
