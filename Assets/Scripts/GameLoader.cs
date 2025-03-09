@@ -37,8 +37,6 @@ public class GameLoader : MonoBehaviour
             timerText.text = $"Time: {timer:F1} s";
             Debug.Log("Timer started");
 
-
-
             switch (difficultySettings.difficulty)
             {
                 case DifficultySettings.DifficultyLevel.Easy:

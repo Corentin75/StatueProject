@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelName: Level 4
   levelId: 4
-  artWorkPrefab: {fileID: 5197318236457803408, guid: 71ba05f79d73bcf4793c855be211842b, type: 3}
+  HideArtWork: {fileID: 11400000, guid: ebcb6a115de3f8f4d95369f21a21e1a8, type: 2}
   artWorks:
   - {fileID: 11400000, guid: ebcb6a115de3f8f4d95369f21a21e1a8, type: 2}
   - {fileID: 11400000, guid: 0513d2188a6d28c4a96de47e117e38a5, type: 2}
