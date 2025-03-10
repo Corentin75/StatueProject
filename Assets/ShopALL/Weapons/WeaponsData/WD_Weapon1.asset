@@ -12,9 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1697310a81621e41bffc2981d39e606, type: 3}
   m_Name: WD_Weapon1
   m_EditorClassIdentifier: 
-  weaponName: Weapon1
+  weaponName: Gun
   weaponPrice: 300
   weaponPaintVolumeRequire: 0
   weaponFireRate: 0
-  weaponPrefab: {fileID: 5143807392954830318, guid: 39517b82f79020045b10a72b067dc167, type: 3}
   weaponIcon: {fileID: 21300000, guid: b5c61710db59b1846821cdf5b4b6770b, type: 3}

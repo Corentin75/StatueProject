@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 845f5423c20eeac4897ce89ad0747e23, type: 3}
   m_Name: PM_2
   m_EditorClassIdentifier: 
-  paintMatName: Mat2
+  paintMatName: Yellow Paint
   paintMatPrice: 200
   paintMatMaterial: {fileID: 2100000, guid: e5c5e5235a2f961469214300603ef158, type: 2}
   paintMatIcon: {fileID: 21300000, guid: dd1c90f925eabf64c8ac3584fe29a390, type: 3}

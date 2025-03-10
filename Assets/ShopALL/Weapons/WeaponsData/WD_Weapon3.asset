@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1697310a81621e41bffc2981d39e606, type: 3}
   m_Name: WD_Weapon3
   m_EditorClassIdentifier: 
-  weaponName: Weapon3
-  weaponPrice: 0
+  weaponName: Bazooka
+  weaponPrice: 1000
   weaponPaintVolumeRequire: 0
   weaponFireRate: 0
-  weaponIcon: {fileID: 21300000, guid: 13ea09a9a2137d04990267363c0140e4, type: 3}
+  weaponIcon: {fileID: 21300000, guid: 838a9a00c630fe94e9a77840941f3a89, type: 3}

@@ -11977,6 +11977,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   difficultySettings: {fileID: 11400000, guid: 084666558983f054baa87d0734b9bc27, type: 2}
+  speed: 0
+  direction: 1
 --- !u!65 &1185559448
 BoxCollider:
   m_ObjectHideFlags: 0
