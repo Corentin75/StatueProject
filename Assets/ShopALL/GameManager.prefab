@@ -62,9 +62,10 @@ MonoBehaviour:
   levels:
   - {fileID: 11400000, guid: c9816adcd2a33aa4abcd71e0ea18a212, type: 2}
   - {fileID: 11400000, guid: 6aa98e0e20b59b74da3bcc4039494c75, type: 2}
+  - {fileID: 11400000, guid: 67e00ea45914ef1478cdad54633a8590, type: 2}
+  - {fileID: 11400000, guid: f2e9d9fade93e314696fcd0085a620f7, type: 2}
+  - {fileID: 11400000, guid: fecd27f089de2ae469ccea6f922f5f1f, type: 2}
+  - {fileID: 11400000, guid: 2767a5039342c1f4fafc5cfbd1e6eb6a, type: 2}
   socle: {fileID: 0}
-  buttonsChoice:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  statueEmplacement: {fileID: 0}
+  canvaConfirm: {fileID: 0}

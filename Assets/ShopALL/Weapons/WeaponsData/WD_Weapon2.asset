@@ -12,9 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1697310a81621e41bffc2981d39e606, type: 3}
   m_Name: WD_Weapon2
   m_EditorClassIdentifier: 
-  weaponName: Weapon2
+  weaponName: Shotgun
   weaponPrice: 600
   weaponPaintVolumeRequire: 0
   weaponFireRate: 0
-  weaponPrefab: {fileID: 8239717264911517147, guid: 2da38ce443f0ae248afbeac2a814b252, type: 3}
-  weaponIcon: {fileID: 21300000, guid: 40b521b17ff92f14f8d1b27bf7cdd1b1, type: 3}
+  weaponIcon: {fileID: 21300000, guid: b8dadd94ff2deda40832f396fbfd1dcc, type: 3}

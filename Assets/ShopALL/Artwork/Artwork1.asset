@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Artwork1
   m_EditorClassIdentifier: 
   artworkName: Artwork1
-  artworkPicture: {fileID: 21300000, guid: d33727b7bb3b226479fdd1a7003dee33, type: 3}
+  artworkPrefab: {fileID: 3283346800442345175, guid: 8aa50f1eaa68bb744b9a7d0b1ddf0315, type: 3}
