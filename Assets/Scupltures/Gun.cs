@@ -25,7 +25,6 @@ public class Gun : MonoBehaviour
             var sculpture = hit.collider.gameObject.GetComponent<Sculpture>();
             if (sculpture != null)
             {
-                
                 Vector2 uv = hit.textureCoord;
                 sculpture.Paint(uv, brushSize, paintTexture, paintMaterial, paintColor); // Passer la texture, le matériau et la couleur de pinceau
             }
@@ -37,6 +36,4 @@ public class Gun : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawRay(gun.transform.position, gun.transform.forward);
     }
-
-    
 }
