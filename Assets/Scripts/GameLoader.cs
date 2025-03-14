@@ -28,7 +28,7 @@ public class GameLoader : MonoBehaviour
     {
         if (difficultySettings != null)
         {
-            player.transform.position = new Vector3(7.1f, 0, 3.8f); // tp dans l'atelier
+            player.transform.position = new Vector3(7.1f, 0.212f, 3.8f); // tp dans l'atelier
 
 
             timer = 0f;
