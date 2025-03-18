@@ -16,7 +16,7 @@ public class Gun : MonoBehaviour
     public Texture2D paintTexture; // Texture de pinceau
     public Color paintColor = Color.red; // Couleur de peinture
     public SprayController particle;
-    public SteamVR_Action_Boolean actionFire = SteamVR_Input.GetAction<SteamVR_Action_Boolean>("gun", "FireGun");
+    public SteamVR_Action_Boolean actionFire = SteamVR_Input.GetAction<SteamVR_Action_Boolean>("Gun", "FireGun");
     private Coroutine shootingCoroutine;
 
     private void Start()
@@ -28,7 +28,7 @@ public class Gun : MonoBehaviour
         RaycastHit hit;
         Ray ray = new Ray(gun.transform.position, gun.transform.forward);
         StartCoroutine(particle.PlayParticle());
-
+        Debug.Log("Shoot");
         if (Physics.Raycast(ray, out hit, Mathf.Infinity, layerMask))
         {
             Sculpture sculpture = hit.collider.gameObject.GetComponent<Sculpture>();
@@ -52,7 +52,9 @@ public class Gun : MonoBehaviour
         if (interactable.attachedToHand)
         {
             SteamVR_Input_Sources hand = interactable.attachedToHand.handType;
+            Debug.Log(hand);
             isFiring = actionFire.GetState(hand);
+            Debug.Log(isFiring);
         }
         if (shootingCoroutine == null & isFiring)
         {
