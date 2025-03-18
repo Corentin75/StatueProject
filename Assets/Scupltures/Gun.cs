@@ -52,20 +52,30 @@ public class Gun : MonoBehaviour
         if (interactable.attachedToHand)
         {
             SteamVR_Input_Sources hand = interactable.attachedToHand.handType;
-            Debug.Log(hand);
-            isFiring = actionFire.GetState(hand);
-            Debug.Log(isFiring);
+            Debug.Log("Interacting hand: " + hand);
+
+            isFiring = actionFire.state;
+            Debug.Log("Is Firing: " + isFiring);
         }
-        if (shootingCoroutine == null & isFiring)
+        else
         {
+            Debug.Log("Gun is not attached to a hand.");
+        }
+
+        if (shootingCoroutine == null && isFiring)
+        {
+            Debug.Log("Starting shooting coroutine");
             shootingCoroutine = StartCoroutine(ShootContinuously());
         }
+
         if (shootingCoroutine != null && !isFiring)
         {
+            Debug.Log("Stopping shooting coroutine");
             StopCoroutine(shootingCoroutine);
             shootingCoroutine = null;
         }
     }
+
 
     private IEnumerator ShootContinuously()
     {
