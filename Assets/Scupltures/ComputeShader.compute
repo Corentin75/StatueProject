@@ -5,9 +5,10 @@ Texture2D<float4> _MainTex;
 Texture2D<float4> _BrushTex;
 SamplerState samplerState;
 
-float4 _BrushColor; // La couleur du pinceau (avec alpha)
-float2 _HitPosition; // Position du pinceau (UV)
+float4 _BrushColor;  // Couleur du pinceau avec alpha
+float2 _HitPosition; // Position du pinceau en UV
 int2 _TextureSize;
+float _BrushSize;    // Taille du pinceau (ex: 0.1 pour un pinceau plus petit)
 
 [numthreads(16, 16, 1)]
 void CSMain(uint3 id : SV_DispatchThreadID)
@@ -19,11 +20,12 @@ void CSMain(uint3 id : SV_DispatchThreadID)
     float2 uv = id.xy / float2(_TextureSize.x, _TextureSize.y);
     uv.y = 1.0f - uv.y; // Inversion de Y pour correspondre à Unity
 
-    // Calcul des UV du pinceau
-    float2 brushUV = (uv - _HitPosition) * 2.0f;
+    // Calcul des UV du pinceau et de la distance par rapport au centre
+    float2 brushUV = (uv - _HitPosition) / _BrushSize; // Ajusté avec _BrushSize
+    float distanceFromCenter = length(brushUV); // Distance normalisée (0 au centre, ~1 aux bords)
 
-    // Vérifier si on est dans la zone du pinceau
-    if (brushUV.x < 0.0f || brushUV.x > 1.0f || brushUV.y < 0.0f || brushUV.y > 1.0f)
+    // Vérifier si on est en dehors du pinceau
+    if (distanceFromCenter > 1.0f)
     {
         Result[id.xy] = _MainTex[id.xy];
         return;
@@ -33,14 +35,15 @@ void CSMain(uint3 id : SV_DispatchThreadID)
     float4 baseColor = _MainTex[id.xy];
 
     // Charger la couleur du pinceau
-    int2 brushTexCoords = int2(brushUV * float2(_TextureSize));
+    int2 brushTexCoords = int2((brushUV * 0.5f + 0.5f) * float2(_TextureSize)); // Remap en [0,1] pour lookup
     float4 brushMask = _BrushTex.Load(int3(brushTexCoords, 0));
 
-    // Appliquer la transparence du pinceau
-    float brushAlpha = brushMask.a * _BrushColor.a;
+    // Appliquer la transparence du pinceau en fonction de la distance
+    float distanceFactor = 1.0f - distanceFromCenter; // Diminue avec la distance
+    float brushAlpha = max(0.39, brushMask.a * _BrushColor.a * distanceFactor); // Min 100 (0.39)
 
     // Mélanger la couleur du pinceau avec la texture existante en tenant compte de l’alpha
     float4 newColor = lerp(baseColor, _BrushColor, brushAlpha);
-    
+
     Result[id.xy] = newColor;
 }

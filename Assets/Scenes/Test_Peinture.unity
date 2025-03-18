@@ -12297,7 +12297,7 @@ MonoBehaviour:
   brushSize: 0.015
   paintTexture: {fileID: 2800000, guid: f0a4097d4000c5a4fbc3f4b459c608dd, type: 3}
   paintMaterial: {fileID: 2100000, guid: 43874c21e2c2acb4e863244c9d2a29b5, type: 2}
-  paintColor: {r: 1, g: 0, b: 0.056213856, a: 1}
+  paintColor: {r: 1, g: 0, b: 0, a: 1}
   particle: {fileID: 1210575486}
 --- !u!4 &1720647964 stripped
 Transform:
