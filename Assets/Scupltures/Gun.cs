@@ -4,17 +4,25 @@ using Unity.XR.CoreUtils;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.XR;
+using Valve.VR;
+using Valve.VR.InteractionSystem;
 
 public class Gun : MonoBehaviour
 {
     public GameObject gun;
+    private Interactable interactable;
     public LayerMask layerMask;
     public float brushSize = 0.1f;
     public Texture2D paintTexture; // Texture de pinceau
-    public Material paintMaterial; // Matériau de peinture
     public Color paintColor = Color.red; // Couleur de peinture
     public SprayController particle;
+    public SteamVR_Action_Boolean actionFire = SteamVR_Input.GetAction<SteamVR_Action_Boolean>("gun", "FireGun");
+    private Coroutine shootingCoroutine;
 
+    private void Start()
+    {
+        interactable = GetComponent<Interactable>();
+    }
     public void Shoot()
     {
         RaycastHit hit;
@@ -36,5 +44,33 @@ public class Gun : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawRay(gun.transform.position, gun.transform.forward);
+    }
+
+    private void Update()
+    {
+        bool isFiring = false;
+        if (interactable.attachedToHand)
+        {
+            SteamVR_Input_Sources hand = interactable.attachedToHand.handType;
+            isFiring = actionFire.GetState(hand);
+        }
+        if (shootingCoroutine == null & isFiring)
+        {
+            shootingCoroutine = StartCoroutine(ShootContinuously());
+        }
+        if (shootingCoroutine != null && !isFiring)
+        {
+            StopCoroutine(shootingCoroutine);
+            shootingCoroutine = null;
+        }
+    }
+
+    private IEnumerator ShootContinuously()
+    {
+        while (true)
+        {
+            Shoot();
+            yield return new WaitForSeconds(0.01f);
+        }
     }
 }
