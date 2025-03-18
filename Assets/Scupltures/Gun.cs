@@ -20,23 +20,21 @@ public class Gun : MonoBehaviour
         RaycastHit hit;
         Ray ray = new Ray(gun.transform.position, gun.transform.forward);
         StartCoroutine(particle.PlayParticle());
-        if (Physics.Raycast(ray, out hit) && layerMask.Contains(hit.collider.gameObject.layer))
+
+        if (Physics.Raycast(ray, out hit, Mathf.Infinity, layerMask))
         {
-            var sculpture = hit.collider.gameObject.GetComponent<Sculpture>();
+            Sculpture sculpture = hit.collider.gameObject.GetComponent<Sculpture>();
             if (sculpture != null)
             {
-                
-                Vector2 uv = hit.textureCoord;
-                sculpture.Paint(uv, brushSize, paintTexture, paintMaterial, paintColor); // Passer la texture, le matériau et la couleur de pinceau
+                sculpture.Paint(hit.point, brushSize, paintColor); // Peinture sur les vertices
             }
         }
     }
+
 
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
         Gizmos.DrawRay(gun.transform.position, gun.transform.forward);
     }
-
-    
 }
