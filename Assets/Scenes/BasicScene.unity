@@ -11915,7 +11915,7 @@ MonoBehaviour:
   paintColor: {r: 1, g: 0, b: 0, a: 1}
   particle: {fileID: 519247792}
   actionFire:
-    actionPath: /actions/buggy/in/Brake
+    actionPath: /actions/Gun/in/FireGun
     needsReinit: 0
 --- !u!1001 &2077063698
 PrefabInstance:
