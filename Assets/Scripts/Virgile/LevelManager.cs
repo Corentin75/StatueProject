@@ -21,6 +21,8 @@ public class LevelManager : MonoBehaviour
     private GameObject currentStructure;
     private GameObject currentStatue;
 
+    private int badAnswersNb;
+
     void Start()
     {
         soclePosition = socle.transform.position + Vector3.up * 0.5f;
@@ -28,6 +30,8 @@ public class LevelManager : MonoBehaviour
 
         LoadLevel(currentLevel);
         Debug.Log("Niveau actuel : " + currentLevel);
+
+        badAnswersNb = 0;
     }
 
     public void LoadLevel(int level)
@@ -71,7 +75,7 @@ public class LevelManager : MonoBehaviour
     public void OpenConfirm()
     {
         bool isCorrect = levels[currentLevel].HideArtWork == levels[currentLevel].artWorks[levelClick];
-
+        
         if(isCorrect)
         {
             Debug.Log("Good Answer");
@@ -80,6 +84,8 @@ public class LevelManager : MonoBehaviour
         else
         {
             Debug.Log("Bad Answer");
+            badAnswersNb++;
+            Debug.Log("Bad answers number: " + badAnswersNb);
         }
         canvaConfirm.SetActive(false);
     }
