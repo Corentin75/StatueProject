@@ -17,6 +17,7 @@ public class Gun : MonoBehaviour
     public Color paintColor = Color.red; // Couleur de peinture
     public SprayController particle;
     public SteamVR_Action_Boolean actionFire = SteamVR_Input.GetAction<SteamVR_Action_Boolean>("Gun", "FireGun");
+    public float betweenShots;
     private Coroutine shootingCoroutine;
 
     private void Start()
@@ -28,7 +29,6 @@ public class Gun : MonoBehaviour
         RaycastHit hit;
         Ray ray = new Ray(gun.transform.position, gun.transform.forward);
         StartCoroutine(particle.PlayParticle());
-        Debug.Log("Shoot");
         if (Physics.Raycast(ray, out hit, Mathf.Infinity, layerMask))
         {
             Sculpture sculpture = hit.collider.gameObject.GetComponent<Sculpture>();
@@ -51,26 +51,18 @@ public class Gun : MonoBehaviour
         bool isFiring = false;
         if (interactable.attachedToHand)
         {
+            Debug.Log(SteamVR_Input.actionsBoolean);
             SteamVR_Input_Sources hand = interactable.attachedToHand.handType;
-            Debug.Log("Interacting hand: " + hand);
-
             isFiring = actionFire.state;
-            Debug.Log("Is Firing: " + isFiring);
-        }
-        else
-        {
-            Debug.Log("Gun is not attached to a hand.");
         }
 
         if (shootingCoroutine == null && isFiring)
         {
-            Debug.Log("Starting shooting coroutine");
             shootingCoroutine = StartCoroutine(ShootContinuously());
         }
 
         if (shootingCoroutine != null && !isFiring)
         {
-            Debug.Log("Stopping shooting coroutine");
             StopCoroutine(shootingCoroutine);
             shootingCoroutine = null;
         }
@@ -82,7 +74,7 @@ public class Gun : MonoBehaviour
         while (true)
         {
             Shoot();
-            yield return new WaitForSeconds(0.01f);
+            yield return new WaitForSeconds(betweenShots);
         }
     }
 }
