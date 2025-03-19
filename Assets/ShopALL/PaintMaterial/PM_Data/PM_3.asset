@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   paintMatName: Dissolvant
   paintMatPrice: 300
-  paintMatMaterial: {fileID: 2100000, guid: f0e53af67e8d9df4e9caa988fc209285, type: 2}
+  paintMatColor: {r: 0, g: 1, b: 1, a: 0}
   paintMatIcon: {fileID: 21300000, guid: 52e6d821ef271a24b862551e9bc4a89f, type: 3}

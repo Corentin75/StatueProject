@@ -7,6 +7,6 @@ public class PaintMatData : ScriptableObject
 {
     public string paintMatName;
     public float paintMatPrice;
-    public Material paintMatMaterial;
+    public Color paintMatColor;
     public Sprite paintMatIcon;
 }

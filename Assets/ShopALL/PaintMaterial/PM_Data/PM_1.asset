@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   paintMatName: Blue Paint
   paintMatPrice: 100
-  paintMatMaterial: {fileID: 2100000, guid: 4a1780086ab7177428bf357258a09613, type: 2}
+  paintMatColor: {r: 1, g: 0, b: 0, a: 1}
   paintMatIcon: {fileID: 21300000, guid: 13ea09a9a2137d04990267363c0140e4, type: 3}
