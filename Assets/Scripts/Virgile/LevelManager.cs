@@ -33,7 +33,7 @@ public class LevelManager : MonoBehaviour
         LoadLevel(currentLevel);
         Debug.Log("Niveau actuel : " + currentLevel);
 
-        badAnswersNb = 0;
+        
     }
 
     public void LoadLevel(int level)
@@ -117,6 +117,10 @@ public class LevelManager : MonoBehaviour
     {
         NextLevel();
         canvaHome.SetActive(false);
+    }
+    public void AnswerReset()
+    {
+        badAnswersNb = 0;
     }
 
 }
