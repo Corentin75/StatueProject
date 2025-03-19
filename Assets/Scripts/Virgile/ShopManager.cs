@@ -19,7 +19,7 @@ public class ShopManager : MonoBehaviour
 
     public PaintMatData[] paintMatData;
 
-    public Gun gunRef;
+    public Gun[] guns;
 
     private void Start()
     {
@@ -135,7 +135,10 @@ public class ShopManager : MonoBehaviour
     {
         if (MoneyInventory.Instance.SpendMoney(paintMat.paintMatPrice))
         {
-            gunRef.paintColor = paintMat.paintMatColor;
+            foreach(var gun in guns)
+            {
+                gun.paintColor = paintMat.paintMatColor;
+            }
             Debug.Log("Achat réussi pour " + paintMat.paintMatName + " au prix de " + paintMat.paintMatPrice + " !");
         }
         else

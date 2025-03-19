@@ -17,6 +17,7 @@ public class Gun : MonoBehaviour
     public Color paintColor = Color.red; // Couleur de peinture
     public SprayController particle;
     public SteamVR_Action_Boolean actionFire = SteamVR_Input.GetAction<SteamVR_Action_Boolean>("Gun", "FireGun");
+    public float betweenShots;
     private Coroutine shootingCoroutine;
 
     private void Start()
@@ -73,7 +74,7 @@ public class Gun : MonoBehaviour
         while (true)
         {
             Shoot();
-            yield return new WaitForSeconds(0.01f);
+            yield return new WaitForSeconds(betweenShots);
         }
     }
 }

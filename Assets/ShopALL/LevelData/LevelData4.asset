@@ -16,7 +16,7 @@ MonoBehaviour:
   levelId: 3
   HideArtWork: {fileID: 11400000, guid: ebcb6a115de3f8f4d95369f21a21e1a8, type: 2}
   artWorks:
-  - {fileID: 11400000, guid: ebcb6a115de3f8f4d95369f21a21e1a8, type: 2}
-  - {fileID: 11400000, guid: 0513d2188a6d28c4a96de47e117e38a5, type: 2}
-  - {fileID: 11400000, guid: 6b99358e44e67cf469e509ed836fd754, type: 2}
   - {fileID: 11400000, guid: e3ad415d637b241459edd89b23a7ad15, type: 2}
+  - {fileID: 11400000, guid: 6b99358e44e67cf469e509ed836fd754, type: 2}
+  - {fileID: 11400000, guid: 0513d2188a6d28c4a96de47e117e38a5, type: 2}
+  - {fileID: 11400000, guid: ebcb6a115de3f8f4d95369f21a21e1a8, type: 2}
