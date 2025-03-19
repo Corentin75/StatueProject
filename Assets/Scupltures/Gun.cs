@@ -28,7 +28,6 @@ public class Gun : MonoBehaviour
         RaycastHit hit;
         Ray ray = new Ray(gun.transform.position, gun.transform.forward);
         StartCoroutine(particle.PlayParticle());
-        Debug.Log("Shoot");
         if (Physics.Raycast(ray, out hit, Mathf.Infinity, layerMask))
         {
             Sculpture sculpture = hit.collider.gameObject.GetComponent<Sculpture>();
@@ -58,13 +57,11 @@ public class Gun : MonoBehaviour
 
         if (shootingCoroutine == null && isFiring)
         {
-            Debug.Log("Starting shooting coroutine");
             shootingCoroutine = StartCoroutine(ShootContinuously());
         }
 
         if (shootingCoroutine != null && !isFiring)
         {
-            Debug.Log("Stopping shooting coroutine");
             StopCoroutine(shootingCoroutine);
             shootingCoroutine = null;
         }
