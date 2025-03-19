@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
 using TMPro;
+using Valve.VR.InteractionSystem;
 
 public class ShopManager : MonoBehaviour
 {
@@ -102,11 +103,11 @@ public class ShopManager : MonoBehaviour
                 Debug.Log("Prix affiché : " + textBuy.text);
 
                 // Ajouter un bouton d'achat
-                Button buyButton = buy.GetComponent<Button>();
+                UIElement buyButton = buy.GetComponent<UIElement>();
                 if (buyButton != null)
                 {
                     // Associer l'action d'achat avec la méthode BuyItem en passant les données de l'arme
-                    buyButton.onClick.AddListener(() => BuyItem(data));
+                    buyButton.onHandClick.AddListener((hand) => BuyItem(data));
                 }
             }
             else
