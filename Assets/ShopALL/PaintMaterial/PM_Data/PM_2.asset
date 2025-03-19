@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   paintMatName: Yellow Paint
   paintMatPrice: 200
-  paintMatMaterial: {fileID: 2100000, guid: e5c5e5235a2f961469214300603ef158, type: 2}
+  paintMatColor: {r: 0, g: 1, b: 0.004978657, a: 1}
   paintMatIcon: {fileID: 21300000, guid: dd1c90f925eabf64c8ac3584fe29a390, type: 3}

@@ -41,7 +41,7 @@ public class Sculpture : MonoBehaviour
             Debug.LogError("⚠️ Mesh ou vertexColors est null dans Paint() sur " + gameObject.name);
             return;
         }
-        Debug.Log("Hit");
+
         Vector3[] vertices = mesh.vertices;
 
         for (int i = 0; i < vertices.Length; i++)
@@ -52,11 +52,21 @@ public class Sculpture : MonoBehaviour
             // Si le sommet est dans le rayon du pinceau, on change sa couleur
             if (Vector3.Distance(worldVertex, worldHitPoint) <= brushRadius)
             {
+                // Calcule le facteur de distance (proximité du pinceau)
                 float distanceFactor = 1f - (Vector3.Distance(worldVertex, worldHitPoint) / brushRadius);
-                vertexColors[i] = Color.Lerp(vertexColors[i], paintColor, distanceFactor);
+                distanceFactor = Mathf.Clamp01(distanceFactor); // Assure que le facteur est entre 0 et 1
+
+                // Lerp entre la couleur actuelle et la couleur de peinture
+                Color newColor = Color.Lerp(vertexColors[i], paintColor, distanceFactor);
+
+                // Ajuste l'alpha en fonction de la distance (proximité du pinceau)
+                newColor.a = Mathf.Lerp(vertexColors[i].a, 1f, distanceFactor); // L'alpha augmente à mesure qu'on se rapproche du centre
+
+                vertexColors[i] = newColor; // Applique la nouvelle couleur
             }
         }
 
-        mesh.colors = vertexColors; // Appliquer les nouvelles couleurs
+        mesh.colors = vertexColors; // Applique les nouvelles couleurs à la mesh
     }
+
 }
