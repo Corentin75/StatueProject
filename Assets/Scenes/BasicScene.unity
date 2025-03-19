@@ -2547,6 +2547,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: d99eff1cf2f870d48a8feae88d71d4ec, type: 2}
     - target: {fileID: 7000456139708646000, guid: 0250da3de55b34e418a6a1d8f750e01f, type: 3}
+      propertyPath: money
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 7000456139708646000, guid: 0250da3de55b34e418a6a1d8f750e01f, type: 3}
       propertyPath: moneyText
       value: 
       objectReference: {fileID: 1893613852}
@@ -19306,9 +19310,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 4a2583a8b4b6eab478028238fd05f873, type: 2}
   - {fileID: 11400000, guid: 65f6f6de169f3214db429e3247dbdae6, type: 2}
   guns:
+  - {fileID: 797323059}
   - {fileID: 1926478763}
   - {fileID: 898635559}
-  - {fileID: 797323059}
 --- !u!64 &8187018648815042488
 MeshCollider:
   m_ObjectHideFlags: 0
