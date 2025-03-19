@@ -117,9 +117,6 @@ public class LevelManager : MonoBehaviour
     {
         NextLevel();
         canvaHome.SetActive(false);
-    }
-    public void AnswerReset()
-    {
         badAnswersNb = 0;
     }
 
