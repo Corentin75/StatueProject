@@ -17,6 +17,8 @@ public class LevelManager : MonoBehaviour
     public GameObject statueEmplacement;
     public GameObject canvaConfirm;
     public GameObject canvaHome;
+    public GameObject canvaRight;
+    public GameObject canvaLeft;
 
     private GameObject currentStructure;
     private GameObject currentStatue;
@@ -56,7 +58,7 @@ public class LevelManager : MonoBehaviour
 
     public void NextLevel()
     {
-        if (currentLevel < levels.Length - 1) 
+        if (currentLevel < levels.Length - 1)
         {
             currentLevel++;
             LoadLevel(currentLevel);
@@ -69,8 +71,17 @@ public class LevelManager : MonoBehaviour
     }
 
 
-    public void OnCliCk() => canvaConfirm.SetActive(true);
-    public void CloseConfirm() => canvaConfirm.SetActive(false);
+    public void OnCliCk() {
+        canvaConfirm.SetActive(true);
+        canvaLeft.SetActive(false);
+        canvaRight.SetActive(false);
+    }
+    public void CloseConfirm()
+    {
+        canvaConfirm.SetActive(false);
+        canvaLeft.SetActive(true);
+        canvaRight.SetActive(true);
+    }
 
     public void OpenConfirm()
     {
