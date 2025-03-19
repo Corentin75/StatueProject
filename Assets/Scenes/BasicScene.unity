@@ -9319,7 +9319,7 @@ MonoBehaviour:
   paintColor: {r: 1, g: 0, b: 0, a: 1}
   particle: {fileID: 519247792}
   actionFire:
-    actionPath: /actions/Gun/in/FireGun
+    actionPath: /actions/default/in/FireGun
     needsReinit: 0
 --- !u!64 &1028763623
 MeshCollider:
@@ -9466,7 +9466,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activateActionSetOnAttach:
-    actionSetPath: /actions/Gun
+    actionSetPath: /actions/default
   hideHandOnAttach: 0
   hideSkeletonOnAttach: 0
   hideControllerOnAttach: 1
