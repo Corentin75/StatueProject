@@ -28,7 +28,7 @@ public class GameLoader : MonoBehaviour
     {
         if (difficultySettings != null)
         {
-            player.transform.position = new Vector3(7.1f, 0, 3.8f); // tp dans l'atelier
+            player.transform.position = new Vector3(7.1f, 0.212f, 3.8f); // tp dans l'atelier
 
 
             timer = 0f;
@@ -71,7 +71,7 @@ public class GameLoader : MonoBehaviour
     public void EndGame()
     {
         Debug.Log("Game over");
-        player.transform.position = new Vector3(0.1f, 0, 2.2f); // tp dans le local
+        player.transform.position = new Vector3(-6.6f, 0, -1.85f); // tp dans le local
 
         isTimerRunning = false;
         timerText.gameObject.SetActive(false);

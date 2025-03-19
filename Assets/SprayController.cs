@@ -17,7 +17,6 @@ public class SprayController : MonoBehaviour
     public IEnumerator PlayParticle()
     {
         sprayParticles.Play();
-        Debug.Log("particule");
         yield return new WaitForSeconds(1.5f);
         sprayParticles.Stop();
     }
