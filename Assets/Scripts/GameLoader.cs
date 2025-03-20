@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using UnityEditor;
 using UnityEngine;
 
 public class GameLoader : MonoBehaviour
@@ -87,5 +88,11 @@ public class GameLoader : MonoBehaviour
 
         Debug.Log("Money earned: " + moneyEarned);
         Debug.Log("Time taken: " + timer.ToString("F1")); // arrondi au dixième
+    }
+
+    public void QuitGame()
+    {
+        //Application.Quit();                // build
+        EditorApplication.isPlaying = false; // editor
     }
 }
