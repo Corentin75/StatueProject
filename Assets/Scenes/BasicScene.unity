@@ -2918,6 +2918,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: d783fe1a676491e43a62db70861356a2, type: 2}
+    - target: {fileID: -4171747524050254038, guid: 55c6fdcac7852d7409d2362959aa801b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5dba9be548a686a4ba99db5caf4cf85e, type: 2}
     - target: {fileID: -3192516001759640602, guid: 55c6fdcac7852d7409d2362959aa801b, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -2934,6 +2938,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Museum
       objectReference: {fileID: 0}
+    - target: {fileID: 3622580613638362668, guid: 55c6fdcac7852d7409d2362959aa801b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 776a138c451aa87409f947f2bd249f22, type: 2}
     - target: {fileID: 7558611693970042329, guid: 55c6fdcac7852d7409d2362959aa801b, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
