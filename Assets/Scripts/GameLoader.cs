@@ -36,7 +36,7 @@ public class GameLoader : MonoBehaviour
             isTimerRunning = true;
             timerText.gameObject.SetActive(true);
             timerText.text = $"Time: {timer:F1} s";
-            Debug.Log("Timer started");
+                    Debug.Log("Timer started");
 
             switch (difficultySettings.difficulty)
             {
