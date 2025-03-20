@@ -5887,8 +5887,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18468eda77be6304a9ff8e5f27ba7c5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  paintComputeShader: {fileID: 7200000, guid: 32582f22073c04242a06a417504fbebb, type: 3}
-  minAlpha: 0.1
 --- !u!1001 &384482750
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11470,8 +11468,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18468eda77be6304a9ff8e5f27ba7c5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  paintComputeShader: {fileID: 7200000, guid: 32582f22073c04242a06a417504fbebb, type: 3}
-  minAlpha: 0.1
 --- !u!1001 &879076770
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11919,6 +11915,63 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1662006964}
   m_SourcePrefab: {fileID: 100100000, guid: 77e7c27b2c5525e4aa8cc9f99d654486, type: 3}
+--- !u!1001 &978142362
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4858053360660137002, guid: 71ba05f79d73bcf4793c855be211842b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.096
+      objectReference: {fileID: 0}
+    - target: {fileID: 4858053360660137002, guid: 71ba05f79d73bcf4793c855be211842b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.0012728714
+      objectReference: {fileID: 0}
+    - target: {fileID: 4858053360660137002, guid: 71ba05f79d73bcf4793c855be211842b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.917
+      objectReference: {fileID: 0}
+    - target: {fileID: 4858053360660137002, guid: 71ba05f79d73bcf4793c855be211842b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071067
+      objectReference: {fileID: 0}
+    - target: {fileID: 4858053360660137002, guid: 71ba05f79d73bcf4793c855be211842b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4858053360660137002, guid: 71ba05f79d73bcf4793c855be211842b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4858053360660137002, guid: 71ba05f79d73bcf4793c855be211842b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4858053360660137002, guid: 71ba05f79d73bcf4793c855be211842b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4858053360660137002, guid: 71ba05f79d73bcf4793c855be211842b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4858053360660137002, guid: 71ba05f79d73bcf4793c855be211842b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5197318236457803408, guid: 71ba05f79d73bcf4793c855be211842b, type: 3}
+      propertyPath: m_Name
+      value: statu_5
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 71ba05f79d73bcf4793c855be211842b, type: 3}
 --- !u!1 &1210575485
 GameObject:
   m_ObjectHideFlags: 0
@@ -17192,9 +17245,12 @@ MonoBehaviour:
     m_Bits: 64
   brushSize: 0.015
   paintTexture: {fileID: 2800000, guid: f0a4097d4000c5a4fbc3f4b459c608dd, type: 3}
-  paintMaterial: {fileID: 2100000, guid: 43874c21e2c2acb4e863244c9d2a29b5, type: 2}
   paintColor: {r: 1, g: 0, b: 0, a: 1}
   particle: {fileID: 1210575486}
+  actionFire:
+    actionPath: /actions/Gun/in/FireGun
+    needsReinit: 0
+  betweenShots: 0
 --- !u!4 &1720647964 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7798696490737561623, guid: 2c1a76173c7e0144fbab968bd1968de1, type: 3}
@@ -22238,8 +22294,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18468eda77be6304a9ff8e5f27ba7c5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  paintComputeShader: {fileID: 7200000, guid: 32582f22073c04242a06a417504fbebb, type: 3}
-  minAlpha: 0.1
 --- !u!64 &1965317887
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -22402,3 +22456,4 @@ SceneRoots:
   - {fileID: 2110564412}
   - {fileID: 79260709}
   - {fileID: 1210575487}
+  - {fileID: 978142362}
