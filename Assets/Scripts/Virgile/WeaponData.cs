@@ -6,6 +6,7 @@ using UnityEngine;
 public class WeaponData : ScriptableObject
 {
     public string weaponName;
+    public int id;
     public float weaponPrice;
     public float weaponPaintVolumeRequire;
     public float weaponFireRate;

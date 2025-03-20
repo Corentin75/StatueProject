@@ -123,6 +123,7 @@ public class ShopManager : MonoBehaviour
     {
         if (MoneyInventory.Instance.SpendMoney(weapon.weaponPrice)) 
         {
+            guns[weapon.id].gameObject.SetActive(true);
             Debug.Log("Achat réussi pour " + weapon.weaponName + " au prix de " + weapon.weaponPrice + " !");
         }
         else
