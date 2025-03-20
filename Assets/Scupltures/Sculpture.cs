@@ -31,6 +31,10 @@ public class Sculpture : MonoBehaviour
         }
 
         mesh.colors = vertexColors; // Appliquer les couleurs initiales
+
+        //mesh.MarkDynamic();  // Marks mesh as dynamic for frequent updates
+        //mesh.RecalculateBounds(); // Ensures the mesh updates correctly
+
     }
 
 
@@ -67,6 +71,9 @@ public class Sculpture : MonoBehaviour
         }
 
         mesh.colors = vertexColors; // Applique les nouvelles couleurs à la mesh
+
+        //mesh.MarkDynamic();  // Marks mesh as dynamic for frequent updates
+        //mesh.RecalculateBounds(); // Ensures the mesh updates correctly
     }
 
 }
