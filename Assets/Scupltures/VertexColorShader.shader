@@ -44,7 +44,8 @@ Shader "Custom/VertexColorShader"
                 if (i.color.a < 0.1)
                     discard; // Le pixel est invisible s'il est trop transparent
 
-                return fixed4(i.color.rgb, 1.0); // Peinture visible avec alpha à 1.0
+                // Utilise la couleur avec son alpha pour le rendu
+                return fixed4(i.color.rgb, i.color.a); // Peinture visible avec l'alpha d'origine
             }
             ENDCG
         }

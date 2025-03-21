@@ -5,7 +5,7 @@
       "app_key": "application.generated.unity.projetstatue.exe",
       "launch_type": "url",
       "url": "steam://launch/",
-      "action_manifest_path": "C:\\Users\\jodouillar\\Documents\\GitHub\\StatueProject\\Assets\\StreamingAssets\\SteamVR\\actions.json",
+      "action_manifest_path": "C:\\Users\\chbolon\\Documents\\GitHub\\StatueProject\\Assets\\StreamingAssets\\SteamVR\\actions.json",
       "strings": {
         "en_us": {
           "name": "ProjetStatue [Testing]"
