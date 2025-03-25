@@ -83,6 +83,18 @@ public class GameLoader : MonoBehaviour
         if (timer < 100)
             moneyEarned += Mathf.CeilToInt(100 - timer);
 
+        switch (difficultySettings.difficulty)
+        {
+            case DifficultySettings.DifficultyLevel.Normal:
+                moneyEarned = Mathf.CeilToInt(moneyEarned * 0.8f);
+                break;
+            case DifficultySettings.DifficultyLevel.Hard:
+                moneyEarned = Mathf.CeilToInt(moneyEarned * 0.5f);
+                break;
+            default:
+                break;
+        }
+
         MoneyInventory.Instance.money += moneyEarned;
         MoneyInventory.Instance.UpdateMoneyUI();
 
