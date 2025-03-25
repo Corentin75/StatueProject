@@ -278,7 +278,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 428928, guid: 73ac470d3d909d645a6c89a4664b6849, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.769
+      value: 6.164
       objectReference: {fileID: 0}
     - target: {fileID: 428928, guid: 73ac470d3d909d645a6c89a4664b6849, type: 3}
       propertyPath: m_LocalPosition.y
@@ -286,7 +286,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 428928, guid: 73ac470d3d909d645a6c89a4664b6849, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.243
+      value: 0.267
       objectReference: {fileID: 0}
     - target: {fileID: 428928, guid: 73ac470d3d909d645a6c89a4664b6849, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3927,17 +3927,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d8ac603fdf05e2c42b7586d9f04f64ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &797323059 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 107339914611712843, guid: 41c74125e7c1c4742bf9692114059fe5, type: 3}
-  m_PrefabInstance: {fileID: 8588075888919855822}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 66a2b1610d383a7488855f2a13b6dda2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &797323067 stripped
@@ -19053,17 +19042,14 @@ MonoBehaviour:
   bodyWeapons: {fileID: 9078792756344538247}
   bodypaintMat: {fileID: 5316485896946766532}
   weaponData:
-  - {fileID: 11400000, guid: 405714835c343fd4199dc89efdd680fe, type: 2}
-  - {fileID: 11400000, guid: 8d31e86392868d340a391bc99daf91e3, type: 2}
-  - {fileID: 11400000, guid: e72ad7d65c8ab3a46a67c4028cf0536a, type: 2}
+  - {fileID: 11400000, guid: 8e4f2add7f92f8346b27f4ff4e50eaab, type: 2}
+  - {fileID: 11400000, guid: a13253fab1896ea49bd82b38fba23f38, type: 2}
   paintMatData:
-  - {fileID: 11400000, guid: 04a27180cf0b5924fa22c748dc1886c1, type: 2}
-  - {fileID: 11400000, guid: 4a2583a8b4b6eab478028238fd05f873, type: 2}
-  - {fileID: 11400000, guid: 65f6f6de169f3214db429e3247dbdae6, type: 2}
+  - {fileID: 11400000, guid: d7f3fa1de2e949141b6fcd58f22bba83, type: 2}
+  - {fileID: 11400000, guid: 8457fc1e7394c084880516673c2098fb, type: 2}
   guns:
-  - {fileID: 797323059}
-  - {fileID: 1926478763}
   - {fileID: 898635559}
+  - {fileID: 1926478763}
 --- !u!64 &8187018648815042488
 MeshCollider:
   m_ObjectHideFlags: 0

@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: WD_Weapon1
   m_EditorClassIdentifier: 
   weaponName: Gun
+  id: 2
   weaponPrice: 300
   weaponPaintVolumeRequire: 0
   weaponFireRate: 0

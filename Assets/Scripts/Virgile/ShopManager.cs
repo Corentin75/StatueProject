@@ -56,7 +56,7 @@ public class ShopManager : MonoBehaviour
             TextMeshProUGUI textBuy = buy.Find("BuyPrix").GetComponent<TextMeshProUGUI>();
             if (textBuy != null)
             {
-                textBuy.text = $"Acheter ${data.weaponPrice}";
+                textBuy.text = $"Buy ${data.weaponPrice}";
                 Debug.Log("Prix affiché : " + textBuy.text);
 
                 // Ajouter un bouton d'achat
@@ -101,7 +101,7 @@ public class ShopManager : MonoBehaviour
             TextMeshProUGUI textBuy = buy.Find("BuyPrix").GetComponent<TextMeshProUGUI>();
             if (textBuy != null)
             {
-                textBuy.text = $"Acheter ${data.paintMatPrice}";
+                textBuy.text = $"Buy ${data.paintMatPrice}";
                 Debug.Log("Prix affiché : " + textBuy.text);
 
                 // Ajouter un bouton d'achat
