@@ -86,10 +86,10 @@ public class GameLoader : MonoBehaviour
         switch (difficultySettings.difficulty)
         {
             case DifficultySettings.DifficultyLevel.Normal:
-                moneyEarned = Mathf.CeilToInt(moneyEarned * 0.8f);
+                moneyEarned = Mathf.CeilToInt(moneyEarned * 1.2f);
                 break;
             case DifficultySettings.DifficultyLevel.Hard:
-                moneyEarned = Mathf.CeilToInt(moneyEarned * 0.5f);
+                moneyEarned = Mathf.CeilToInt(moneyEarned * 1.5f);
                 break;
             default:
                 break;
