@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e1697310a81621e41bffc2981d39e606, type: 3}
-  m_Name: WD_Weapon3
+  m_Name: SecondWeapon
   m_EditorClassIdentifier: 
-  weaponName: Bazooka
-  id: 4
-  weaponPrice: 1000
+  weaponName: Big gun
+  id: 1
+  weaponPrice: 800
   weaponPaintVolumeRequire: 0
   weaponFireRate: 0
-  weaponIcon: {fileID: 21300000, guid: 838a9a00c630fe94e9a77840941f3a89, type: 3}
+  weaponIcon: {fileID: 21300000, guid: 48edf66e64171054f9dd7b40afc05c4d, type: 3}
