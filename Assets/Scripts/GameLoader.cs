@@ -104,7 +104,7 @@ public class GameLoader : MonoBehaviour
 
     public void QuitGame()
     {
-        //Application.Quit();                // build
-        EditorApplication.isPlaying = false; // editor
+        Application.Quit();                     // build
+        //EditorApplication.isPlaying = false;  // editor
     }
 }

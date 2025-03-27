@@ -51,7 +51,8 @@
     },
     {
       "name": "/actions/default/in/FireGun",
-      "type": "boolean"
+      "type": "boolean",
+      "requirement": "suggested"
     },
     {
       "name": "/actions/default/out/Haptic",
