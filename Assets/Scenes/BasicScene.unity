@@ -2436,7 +2436,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: d99eff1cf2f870d48a8feae88d71d4ec, type: 2}
     - target: {fileID: 7000456139708646000, guid: 0250da3de55b34e418a6a1d8f750e01f, type: 3}
       propertyPath: money
-      value: 200
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7000456139708646000, guid: 0250da3de55b34e418a6a1d8f750e01f, type: 3}
       propertyPath: moneyText
@@ -3934,6 +3934,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1915730097934110311, guid: 41c74125e7c1c4742bf9692114059fe5, type: 3}
   m_PrefabInstance: {fileID: 8588075888919855822}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &797323069 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 107339914611712843, guid: 41c74125e7c1c4742bf9692114059fe5, type: 3}
+  m_PrefabInstance: {fileID: 8588075888919855822}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66a2b1610d383a7488855f2a13b6dda2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!198 &816439234 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 1254933928905141585, guid: 72e9b56bdf94b54459f55687ec2f700c, type: 3}
@@ -13793,6 +13804,10 @@ PrefabInstance:
       propertyPath: snapTo
       value: 
       objectReference: {fileID: 1779483019}
+    - target: {fileID: 3905249327467294663, guid: 72e9b56bdf94b54459f55687ec2f700c, type: 3}
+      propertyPath: useHandObjectAttachmentPoint
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4263185753881205534, guid: 72e9b56bdf94b54459f55687ec2f700c, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.25
@@ -19050,6 +19065,7 @@ MonoBehaviour:
   guns:
   - {fileID: 898635559}
   - {fileID: 1926478763}
+  - {fileID: 797323069}
 --- !u!64 &8187018648815042488
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -19355,6 +19371,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -3327494209589404412, guid: 41c74125e7c1c4742bf9692114059fe5, type: 3}
+      propertyPath: useHandObjectAttachmentPoint
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 107339914611712843, guid: 41c74125e7c1c4742bf9692114059fe5, type: 3}
       propertyPath: gun
       value: 
@@ -19382,6 +19402,10 @@ PrefabInstance:
     - target: {fileID: 1287425807292257501, guid: 41c74125e7c1c4742bf9692114059fe5, type: 3}
       propertyPath: m_Name
       value: spray
+      objectReference: {fileID: 0}
+    - target: {fileID: 1287425807292257501, guid: 41c74125e7c1c4742bf9692114059fe5, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1915730097934110311, guid: 41c74125e7c1c4742bf9692114059fe5, type: 3}
       propertyPath: m_LocalScale.x
@@ -19569,6 +19593,10 @@ PrefabInstance:
     - target: {fileID: 2266398201885622403, guid: dafde1287fe25394d9db8c431b81d45d, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5676485653323916169, guid: dafde1287fe25394d9db8c431b81d45d, type: 3}
+      propertyPath: useHandObjectAttachmentPoint
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6076521366133855021, guid: dafde1287fe25394d9db8c431b81d45d, type: 3}
       propertyPath: m_LocalPosition.y
